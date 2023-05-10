@@ -59,6 +59,36 @@ public class Main {
 		System.out.println(plano.desenharPlano());
 		System.out.println("---\n");
 		
+		while(!robo.caminharParaMoeda()) {
+			System.out.println("\n---");
+			System.out.println(plano.desenharPlano());
+			System.out.println("---\n");
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		robo.limparPosicoesVistadas();
+		
+		while(!robo.irParaCentro()) {
+			System.out.println("\n---");
+			System.out.println(plano.desenharPlano());
+			System.out.println("---\n");
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		robo.limparPosicoesVistadas();
+		
 		while(!robo.caminharParaMoedaSemRepetir()) {
 			System.out.println("\n---");
 			System.out.println(plano.desenharPlano());
@@ -170,6 +200,17 @@ public class Main {
 			}
 			
 		}
+		
+		System.out.println("\n---");
+		System.out.println("robo andou " + robo.getNorte() + " vezes para o norte");
+		System.out.println("robo andou " + robo.getNordeste() + " vezes para o nordeste");
+		System.out.println("robo andou " + robo.getLeste() + " vezes para o leste");
+		System.out.println("robo andou " + robo.getSudeste() + " vezes para o sudeste");
+		System.out.println("robo andou " + robo.getSul() + " vezes para o sul");
+		System.out.println("robo andou " + robo.getSudoeste() + " vezes para o sudoeste");
+		System.out.println("robo andou " + robo.getOeste() + " vezes para o oeste");
+		System.out.println("robo andou " + robo.getNoroeste() + " vezes para o noroeste");
+		System.out.println("---\n");
 		
 	}
 
