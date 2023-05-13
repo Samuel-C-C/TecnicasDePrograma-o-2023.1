@@ -7,14 +7,14 @@ public class Main {
 	public static boolean jogoContinua(Jogador jogador1, Jogador jogador2, JogoDaVelha jogo) {
 		String resultado = jogo.verificarResultado();
 		
-		if (resultado.equals("vitoria jogador 1")) {
+		if (resultado.equals("vitoria jogador X")) {
 			System.out.println("");
 			System.out.println(jogo.gradeString());
 			System.out.println("");
 			System.out.println(jogador1.nome + " vence");
 			return false;
 			
-		} else if (resultado.equals("vitoria jogador 2")) {
+		} else if (resultado.equals("vitoria jogador O")) {
 			System.out.println("");
 			System.out.println(jogo.gradeString());
 			System.out.println("");
@@ -56,10 +56,10 @@ public class Main {
 		
 		Scanner teclado = new Scanner(System.in);
 		
-		System.out.print("nome jogador 1: ");
+		System.out.print("nome jogador X: ");
 		Jogador jogador1 = new Jogador(teclado.nextLine(), jogo);
 		
-		System.out.print("nome jogador 2: ");
+		System.out.print("nome jogador O: ");
 		Jogador jogador2 = new Jogador(teclado.nextLine(), jogo);
 		
 		boolean primeiroJogador = true;

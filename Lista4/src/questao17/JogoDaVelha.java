@@ -21,31 +21,30 @@ public class JogoDaVelha {
 		
 		for (int linha = 0; linha < 3; linha++) {
 			for (int coluna = 0; coluna < 3; coluna++) {
+				gradeString += " ";
 				
 				if (this.gradeJogo[linha][coluna].equals("vazia")) {
 					gradeString += " ";
-				} else if (this.gradeJogo[linha][coluna].equals("jogador 1")) {
+				} else if (this.gradeJogo[linha][coluna].equals("jogador x")) {
 					gradeString += "X";
-				} else if (this.gradeJogo[linha][coluna].equals("jogador 2")) {
+				} else if (this.gradeJogo[linha][coluna].equals("jogador o")) {
 					gradeString += "O";
 				} else {
 					gradeString += "?";
 				}
 				
+				gradeString += " ";
 				if (coluna < 2) {
 					gradeString += "|";
-				} else {
-					if (linha < 2) {
-						gradeString += "\n";
-					}
 				}
-				
 			}
 			
+			if (linha < 2) {
+				gradeString += "\n---+---+---\n";
+			}
 		}
 		
 		return gradeString;
-		
 	}
 	
 	public boolean verificarPosicao(int linha, int coluna) {
@@ -54,9 +53,9 @@ public class JogoDaVelha {
 	
 	public void escreverGrade(int linha, int coluna) {
 		if (this.jogadorVez) {
-			this.gradeJogo[linha][coluna] = "jogador 1";
+			this.gradeJogo[linha][coluna] = "jogador x";
 		} else {
-			this.gradeJogo[linha][coluna] = "jogador 2";
+			this.gradeJogo[linha][coluna] = "jogador o";
 		}
 		
 		this.jogadorVez = !this.jogadorVez;
