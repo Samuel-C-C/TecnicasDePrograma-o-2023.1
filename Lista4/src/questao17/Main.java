@@ -7,14 +7,14 @@ public class Main {
 	public static boolean jogoContinua(Jogador jogador1, Jogador jogador2, JogoDaVelha jogo) {
 		String resultado = jogo.verificarResultado();
 		
-		if (resultado.equals("vitoria jogador X")) {
+		if (resultado.equals("vitoria jogador x")) {
 			System.out.println("");
 			System.out.println(jogo.gradeString());
 			System.out.println("");
 			System.out.println(jogador1.nome + " vence");
 			return false;
 			
-		} else if (resultado.equals("vitoria jogador O")) {
+		} else if (resultado.equals("vitoria jogador o")) {
 			System.out.println("");
 			System.out.println(jogo.gradeString());
 			System.out.println("");
