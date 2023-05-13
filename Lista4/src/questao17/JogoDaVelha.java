@@ -48,7 +48,10 @@ public class JogoDaVelha {
 	}
 	
 	public boolean verificarPosicao(int linha, int coluna) {
-		return !this.gradeJogo[linha][coluna].equals("vazia");
+		if (1 <= linha && linha <= 3 && 1 <= coluna && coluna <= 3) 
+			return !this.gradeJogo[linha][coluna].equals("vazia");
+		else
+			return false;
 	}
 	
 	public void escreverGrade(int linha, int coluna) {
