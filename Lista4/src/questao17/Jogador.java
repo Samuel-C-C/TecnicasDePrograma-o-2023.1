@@ -19,7 +19,7 @@ public class Jogador {
 		System.out.println(this.nome + ", sua vez!\n" + 
 				"escolha uma posicao para jogar\n");
 		
-		boolean espacoOcupado;
+		boolean espacoInvalido;
 		do {
 			System.out.print("linha: ");
 			linha = teclado.nextInt();
@@ -27,12 +27,16 @@ public class Jogador {
 			System.out.print("coluna: ");
 			coluna = teclado.nextInt();
 			
-			espacoOcupado = jogo.verificarPosicao(linha - 1, coluna - 1);
-			if (espacoOcupado) {
+			espacoInvalido = false;
+			if (linha < 1 || linha > 3 || coluna < 1 || coluna > 3) {
+				System.out.println("espaço inválido\n");
+				espacoInvalido = true;
+			} else if (jogo.verificarPosicao(linha - 1, coluna - 1)) {
 				System.out.println("espaço ocupado\n");
+				espacoInvalido = true;
 			}
 			
-		} while (espacoOcupado);
+		} while (espacoInvalido);
 		
 		jogo.escreverGrade(linha - 1, coluna - 1);
 		
