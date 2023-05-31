@@ -185,6 +185,10 @@ public class Jogo {
 		ArrayList<Aluno> alunosEncontrados = this.plano.getAlunosEncontrados();
 		ArrayList<Bug> bugsEncontrados = this.plano.getBugsEncontrados();
 		
+		if (alunosEncontrados.size() > 0 || bugsEncontrados.size() > 0) {
+			this.IO.escreverln("\n---\n"); // linha de separação
+		}
+		
 		if (alunosEncontrados.size() > 0) {
 			this.IO.escreverln(alunosEncontrados.size() + " alunos foram encontrados");
 			for (Aluno aluno : alunosEncontrados) {
@@ -212,6 +216,9 @@ public class Jogo {
 	}
 	
 	private void relatorioRoboPontuacao() {
+		
+		this.IO.escreverln("\n---\n"); // linha de separação
+		
 		for (Robo robo : this.plano.getRobos()) {
 			this.IO.escreverln("Robo: " + robo.getNome() + 
 					" - pontuação: " + robo.getPontuacao());
@@ -219,7 +226,9 @@ public class Jogo {
 	}
 	
 	private void mostrarPlano() {
-		this.IO.escreverln("\n" + this.plano.toString() + "\n");
+		this.IO.escreverln("\n---\n"); // linha de separação
+		
+		this.IO.escreverln(this.plano.toString());
 	}
 	
 	private int pedirNumeroCasas(int maximo) {
@@ -251,8 +260,10 @@ public class Jogo {
 		int opcao;
 		int numeroCasas;
 		
+		this.IO.escreverln("\n---\n"); // linha de separação
+		
 		while (true) {
-			this.IO.escreverln("\nRobo: " + robo.getNome() + " - Posicao: (" + 
+			this.IO.escreverln("Robo: " + robo.getNome() + " - Posicao: (" + 
 					robo.celula.getPosicao().x + ", " + robo.celula.getPosicao().y + ")");
 			
 			opcao = this.IO.pedirOpcao("Escolha uma opção: ", 
@@ -272,8 +283,6 @@ public class Jogo {
 							" se vc está lendo isso, algo terrivelmente horrível aconteceu :D");
 				}
 				
-				this.IO.escreverln("");
-				
 				return;
 				
 			} catch (OutOfPlaneException e) {
@@ -290,8 +299,6 @@ public class Jogo {
 	}
 
 	private boolean rodada() {
-		
-		// TODO: melhorar os escreverln, ta tudo muito perto e sem espaço
 		
 		// mostrar o plano antes de mover os robos
 		this.mostrarPlano();
@@ -310,6 +317,7 @@ public class Jogo {
 		// dizer a pontuação de cada robo
 		this.relatorioRoboPontuacao();
 		
+
 		/* terminar o jogo se o número de alunos for 0 ou 
 		 * se o jogador escolher sair do jogo*/
 		if (this.plano.numeroAlunos() <= 0) {
@@ -322,6 +330,8 @@ public class Jogo {
 	}
 	
 	private void relatorioRobo(Robo robo) {
+		this.IO.escreverln("\n---\n"); // linha de separação
+		
 		this.IO.escreverln("nome: " + robo.getNome());
 		this.IO.escreverln("pontuação: " + robo.getPontuacao());
 		this.IO.escreverln("celulas visitadas: ");
@@ -360,6 +370,8 @@ public class Jogo {
 		}
 		
 		ArrayList<Robo> melhoresRobos = this.getMelhoresRobos();
+		
+		this.IO.escreverln("\n---\n"); // linha de separação
 		
 		if (melhoresRobos.size() > 1) {
 			this.IO.escreverln("houve um empate entre: ");

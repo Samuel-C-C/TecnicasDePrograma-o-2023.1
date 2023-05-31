@@ -8,12 +8,5 @@ public class RodarProva1 {
 		jogo.iniciarJogo();
 		
 	}
-	
-	/*
-	 * até agora são:
-	 * 1258 linhas de código
-	 * 124 métodos (funções)
-	 * 22 classes
-	 */
 
 }
