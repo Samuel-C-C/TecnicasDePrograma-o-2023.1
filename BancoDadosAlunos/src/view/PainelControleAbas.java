@@ -1,12 +1,12 @@
 package view;
 
-import java.awt.Color;
-import java.awt.GridLayout;
-import java.awt.Panel;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class PainelControleAbas extends Panel {
+import javax.swing.JPanel;
+
+public class PainelControleAbas extends JPanel {
 
 	private static final long serialVersionUID = -5021656132881604141L;
 	
@@ -15,23 +15,23 @@ public class PainelControleAbas extends Panel {
 	public PainelControleAbas(PainelAbas painelAbas) {
 		this.painelAbas = painelAbas;
 
-		this.setLayout(new GridLayout(1, 4));
-		this.setBackground(Color.black);
+		this.setLayout(new FlowLayout());
 		
 		BotaoControleAbas botaoCadastrar = new BotaoControleAbas("Cadastrar");
 		botaoCadastrar.addActionListener(new ActionMostrarAbaCadastrar());
-		this.add(botaoCadastrar);
 		
 		BotaoControleAbas botaoListar = new BotaoControleAbas("Listar");
 		botaoListar.addActionListener(new ActionMostrarAbaListar());
-		this.add(botaoListar);
 		
 		BotaoControleAbas botaoAtualizar = new BotaoControleAbas("Atualizar");
 		botaoAtualizar.addActionListener(new ActionMostrarAbaAtualizar());
-		this.add(botaoAtualizar);
 		
 		BotaoControleAbas botaoDeletar = new BotaoControleAbas("Deletar");
 		botaoDeletar.addActionListener(new ActionMostrarAbaDeletar());
+
+		this.add(botaoCadastrar);
+		this.add(botaoListar);
+		this.add(botaoAtualizar);
 		this.add(botaoDeletar);
 		
 	}

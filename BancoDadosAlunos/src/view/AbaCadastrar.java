@@ -5,10 +5,13 @@ import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.Panel;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
-public class AbaCadastrar extends Panel {
+public class AbaCadastrar extends JPanel {
 
 	private static final long serialVersionUID = 9165687672314097449L;
 	
@@ -17,8 +20,6 @@ public class AbaCadastrar extends Panel {
 	private TextField caixaMatricula;
 	private TextField caixaVertente;
 	
-	private JButton botaoSalvar;
-	
 	public AbaCadastrar() {
 		
 		this.caixaNome = new TextField();
@@ -26,11 +27,8 @@ public class AbaCadastrar extends Panel {
 		this.caixaMatricula = new TextField();
 		this.caixaVertente = new TextField();
 		
-		this.botaoSalvar = new JButton("Salvar");
-		
-		this.setBackground(Color.yellow);
-		
-		this.setLayout(new GridLayout(1, 2));
+		JButton botaoSalvar = new JButton("Cadastrar");
+		botaoSalvar.addActionListener(new ActionCadastrar());
 		
 		Panel painelEsquerda = new Panel();
 		painelEsquerda.setLayout(new GridLayout(5,1));
@@ -49,11 +47,20 @@ public class AbaCadastrar extends Panel {
 		painelDireita.add(caixaVertente);
 		painelDireita.add(botaoSalvar);
 		
+		this.setBackground(Color.yellow);
+		this.setLayout(new GridLayout(1, 2));
+		
 		this.add(painelEsquerda);
 		this.add(painelDireita);
+// 		this.setVisible(false);
 		
- 		this.setVisible(false);
-		
+	}
+	
+	private class ActionCadastrar implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 
@@ -13,8 +14,9 @@ public class Janela extends JFrame {
 		this.setSize(800, 600);
 		this.setTitle("teste");
 		this.setLocationRelativeTo(null);
+		this.setBackground(new Color(0xC9DAF8));
 		
-		PainelAbas painelAbas =  new PainelAbas(this);
+		PainelAbas painelAbas =  new PainelAbas();
 		PainelControleAbas painelControleAbas = new PainelControleAbas(painelAbas);
 		
 		this.add(painelControleAbas, BorderLayout.NORTH);
