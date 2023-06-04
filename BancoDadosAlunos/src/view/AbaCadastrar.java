@@ -2,43 +2,47 @@ package view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class AbaCadastrar extends JPanel {
 
 	private static final long serialVersionUID = 9165687672314097449L;
 	
-	private TextField caixaNome;
-	private TextField caixaCPF;
-	private TextField caixaMatricula;
-	private TextField caixaVertente;
+	private JTextField caixaNome;
+	private JTextField caixaCPF;
+	private JTextField caixaMatricula;
+	private JTextField caixaVertente;
 	
 	public AbaCadastrar() {
 		
-		this.caixaNome = new TextField();
-		this.caixaCPF = new TextField();
-		this.caixaMatricula = new TextField();
-		this.caixaVertente = new TextField();
+		this.caixaNome = new JTextField();
+		this.caixaCPF = new JTextField();
+		this.caixaMatricula = new JTextField();
+		this.caixaVertente = new JTextField();
 		
 		JButton botaoSalvar = new JButton("Cadastrar");
 		botaoSalvar.addActionListener(new ActionCadastrar());
 		
-		Panel painelEsquerda = new Panel();
+		JPanel painelEsquerda = new JPanel();
 		painelEsquerda.setLayout(new GridLayout(5,1));
 		
-		painelEsquerda.add(new Label("Nome:"));
-		painelEsquerda.add(new Label("CPF:"));
-		painelEsquerda.add(new Label("Matrícula:"));
-		painelEsquerda.add(new Label("Vertente:"));
+		JLabel textoNome = new JLabel("Nome:");
+		JLabel textoCPF = new JLabel("CPF:");
+		JLabel textoMatricula = new JLabel("Matrícula:");
+		JLabel textoVertente = new JLabel("Vertente:");
 		
-		Panel painelDireita = new Panel();
+		painelEsquerda.add(textoNome);
+		painelEsquerda.add(textoCPF);
+		painelEsquerda.add(textoMatricula);
+		painelEsquerda.add(textoVertente);
+		
+		JPanel painelDireita = new JPanel();
 		painelDireita.setLayout(new GridLayout(5,1));
 		
 		painelDireita.add(caixaNome);

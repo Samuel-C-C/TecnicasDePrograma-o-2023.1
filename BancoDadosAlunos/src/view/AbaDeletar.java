@@ -2,33 +2,35 @@ package view;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.Panel;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class AbaDeletar extends Panel {
+public class AbaDeletar extends JPanel {
 	
 	private static final long serialVersionUID = -8686685617221306416L;
 	
-	private TextField caixaMatricula;
+	private JTextField caixaMatricula;
 	
 	public AbaDeletar() {
 	
-		this.caixaMatricula = new TextField();
+		this.caixaMatricula = new JTextField();
 		
 		JButton botaoSalvar = new JButton("Deletar");
 		botaoSalvar.addActionListener(new ActionDeletar());
 		
-		Panel painelEsquerda = new Panel();
+		JPanel painelEsquerda = new JPanel();
 		painelEsquerda.setLayout(new GridLayout(2,1));
 		
-		painelEsquerda.add(new Label("Matrícula:"));
+		JLabel textoMatricula = new JLabel("Matrícula:");
 		
-		Panel painelDireita = new Panel();
+		painelEsquerda.add(textoMatricula);
+		
+		JPanel painelDireita = new JPanel();
 		painelDireita.setLayout(new GridLayout(2,1));
 		
 		painelDireita.add(caixaMatricula);
