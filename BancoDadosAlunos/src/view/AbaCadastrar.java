@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import control.Aluno;
+
 public class AbaCadastrar extends JPanel {
 
 	private static final long serialVersionUID = 9165687672314097449L;
@@ -19,7 +21,10 @@ public class AbaCadastrar extends JPanel {
 	private JTextField caixaMatricula;
 	private JTextField caixaVertente;
 	
-	public AbaCadastrar() {
+	private Janela janelaPrincipal;
+	
+	public AbaCadastrar(Janela janelaPrincipal) {
+		this.janelaPrincipal = janelaPrincipal;
 		
 		this.caixaNome = new JTextField();
 		this.caixaCPF = new JTextField();
@@ -30,7 +35,7 @@ public class AbaCadastrar extends JPanel {
 		botaoSalvar.addActionListener(new ActionCadastrar());
 		
 		JPanel painelEsquerda = new JPanel();
-		painelEsquerda.setLayout(new GridLayout(5,1));
+		painelEsquerda.setLayout(new GridLayout(5,1, 0, 10));
 		
 		JLabel textoNome = new JLabel("Nome:");
 		JLabel textoCPF = new JLabel("CPF:");
@@ -43,7 +48,7 @@ public class AbaCadastrar extends JPanel {
 		painelEsquerda.add(textoVertente);
 		
 		JPanel painelDireita = new JPanel();
-		painelDireita.setLayout(new GridLayout(5,1));
+		painelDireita.setLayout(new GridLayout(5,1, 0, 10));
 		
 		painelDireita.add(caixaNome);
 		painelDireita.add(caixaCPF);
@@ -60,10 +65,24 @@ public class AbaCadastrar extends JPanel {
 		
 	}
 	
+	public void limparCaixas() {
+		this.caixaNome.setText("");
+		this.caixaCPF.setText("");
+		this.caixaMatricula.setText("");
+		this.caixaVertente.setText("");
+	}
+	
 	private class ActionCadastrar implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			janelaPrincipal.colecaoAlunos.addAluno(new Aluno(
+					caixaNome.getText(), 
+					caixaCPF.getText(), 
+					caixaMatricula.getText(), 
+					caixaVertente.getText()
+					));
 			
+			janelaPrincipal.painelAbas.updateDados();
+			limparCaixas();
 		}
 	}
 

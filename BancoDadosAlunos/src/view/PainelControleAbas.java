@@ -1,6 +1,7 @@
 package view;
 
-import java.awt.FlowLayout;
+//import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,7 +16,7 @@ public class PainelControleAbas extends JPanel {
 	public PainelControleAbas(PainelAbas painelAbas) {
 		this.painelAbas = painelAbas;
 
-		this.setLayout(new FlowLayout());
+		this.setLayout(new GridLayout(1,4, 10, 0));
 		
 		BotaoControleAbas botaoCadastrar = new BotaoControleAbas("Cadastrar");
 		botaoCadastrar.addActionListener(new ActionMostrarAbaCadastrar());

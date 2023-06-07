@@ -13,13 +13,17 @@ public class PainelAbas extends JPanel {
 	private AbaAtualizar abaAtualizar;
 	private AbaDeletar abaDeletar;
 	
-	public PainelAbas() {
-		this.abaCadastrar = new AbaCadastrar();
-		this.abaListar = new AbaListar();
-		this.abaAtualizar = new AbaAtualizar();
-		this.abaDeletar = new AbaDeletar();
+	public PainelAbas(Janela janelaPrincipal) {
+		this.abaCadastrar = new AbaCadastrar(janelaPrincipal);
+		this.abaListar = new AbaListar(janelaPrincipal);
+		this.abaAtualizar = new AbaAtualizar(janelaPrincipal);
+		this.abaDeletar = new AbaDeletar(janelaPrincipal);
 		
 		this.setLayout(new BorderLayout());
+	}
+	
+	public void updateDados() {
+		this.abaListar.updateDados();
 	}
 	
 	public void mostrarAbaCadastrar() {
@@ -29,6 +33,7 @@ public class PainelAbas extends JPanel {
 		this.remove(abaDeletar);
 		this.add(abaCadastrar, BorderLayout.CENTER);
 		
+		abaCadastrar.limparCaixas();
 		this.updateUI();
 	}
 	
@@ -49,6 +54,7 @@ public class PainelAbas extends JPanel {
 		this.remove(abaDeletar);
 		this.add(abaAtualizar, BorderLayout.CENTER);
 		
+		abaAtualizar.limparCaixas();
 		this.updateUI();
 	}
 	
@@ -59,6 +65,7 @@ public class PainelAbas extends JPanel {
 		this.remove(abaAtualizar);
 		this.add(abaDeletar, BorderLayout.CENTER);
 		
+		abaDeletar.limparCaixas();
 		this.updateUI();
 	}
 

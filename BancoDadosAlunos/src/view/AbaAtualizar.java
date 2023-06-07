@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import control.Aluno;
+
 public class AbaAtualizar extends JPanel {
 
 	private static final long serialVersionUID = -1383494888632096136L;
@@ -17,7 +19,10 @@ public class AbaAtualizar extends JPanel {
 	private JTextField caixaMatricula;
 	private JTextField caixaVertente;
 	
-	public AbaAtualizar() {
+	private Janela janelaPrincipal;
+	
+	public AbaAtualizar(Janela janelaPrincipal) {
+		this.janelaPrincipal = janelaPrincipal;
 		
 		this.caixaMatricula = new JTextField();
 		this.caixaVertente = new JTextField();
@@ -26,7 +31,7 @@ public class AbaAtualizar extends JPanel {
 		botaoSalvar.addActionListener(new  ActionAtualizar());
 		
 		JPanel painelEsquerda = new JPanel();
-		painelEsquerda.setLayout(new GridLayout(3, 1));
+		painelEsquerda.setLayout(new GridLayout(3, 1, 0, 10));
 		
 		JLabel textoMatricula = new JLabel("Matrícula:");
 		JLabel textoVertente = new JLabel("Vertente:");
@@ -35,7 +40,7 @@ public class AbaAtualizar extends JPanel {
 		painelEsquerda.add(textoVertente);
 		
 		JPanel painelDireita = new JPanel();
-		painelDireita.setLayout(new GridLayout(3, 1));
+		painelDireita.setLayout(new GridLayout(3, 1, 0, 10));
 		
 		painelDireita.add(caixaMatricula);
 		painelDireita.add(caixaVertente);
@@ -50,10 +55,21 @@ public class AbaAtualizar extends JPanel {
 		
 	}
 	
+	public void limparCaixas() {
+		this.caixaMatricula.setText("");
+		this.caixaVertente.setText("");
+	}
+	
 	private class ActionAtualizar implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			int index = janelaPrincipal.colecaoAlunos.findAlunoMatricula(caixaMatricula.getText());
+			if (index >= 0) {
+				Aluno aluno = janelaPrincipal.colecaoAlunos.getAluno(index);
+				aluno.setVertente(caixaVertente.getText());
+			}
 			
+			janelaPrincipal.painelAbas.updateDados();
+			limparCaixas();
 		}
 	}
 

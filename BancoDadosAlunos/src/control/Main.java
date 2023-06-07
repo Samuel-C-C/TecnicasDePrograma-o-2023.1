@@ -6,8 +6,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		@SuppressWarnings("unused")
-		Janela janelaPrincipal = new Janela();
+		ColecaoAlunos colecaoAlunos = new ColecaoAlunos();
+		
+		new Janela(colecaoAlunos);
 
 	}
 
