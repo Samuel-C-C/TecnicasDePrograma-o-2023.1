@@ -122,9 +122,9 @@ public class PainelGrade extends JPanel {
 				getBotao(x, y).setText("");
 				
 				if (tabuleiro.getCelula(x, y).isVisitada()) {
-					getBotao(x, y).setIcon(Imagens.CELULA_VAZIA.getImagem());
+					getBotao(x, y).definirImagemCelulaVazia();;
 				} else {
-					getBotao(x, y).setIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+					getBotao(x, y).definirImagemCelulaEscondida();;
 				}
 			}
 		}
@@ -135,9 +135,9 @@ public class PainelGrade extends JPanel {
 				int yAlunoOuBug = alunoOuBug.getY();
 				
 				if (alunoOuBug.isAluno()) {
-					getBotao(xAlunoOuBug, yAlunoOuBug).setIcon(Imagens.CELULA_COM_ALUNO.getImagem());
+					getBotao(xAlunoOuBug, yAlunoOuBug).definirImagemCelulaComAluno();
 				} else if (alunoOuBug.isBug()) {
-					getBotao(xAlunoOuBug, yAlunoOuBug).setIcon(Imagens.CELULA_COM_BUG.getImagem());
+					getBotao(xAlunoOuBug, yAlunoOuBug).definirImagemCelulaComBug();
 				}
 			}
 		}
@@ -145,11 +145,11 @@ public class PainelGrade extends JPanel {
 		for (Robo robo : tabuleiro.getRobos()) {
 			if (robo.isPosicionado()) {
 				if (robo.getId() == 1) {
-					getBotao(robo.getX(), robo.getY()).setIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
+					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo1();
 				} else if (robo.getId() == 2) {
-					getBotao(robo.getX(), robo.getY()).setIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
+					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo2();
 				} else if (robo.getId() == 3) {
-					getBotao(robo.getX(), robo.getY()).setIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
+					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo3();
 				} else {
 					getBotao(robo.getX(), robo.getY()).setText(robo.getNome());
 				}

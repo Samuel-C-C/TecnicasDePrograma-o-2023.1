@@ -1,8 +1,6 @@
 package view;
 
 import java.awt.MediaTracker;
-
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public enum Imagens {
@@ -30,7 +28,7 @@ public enum Imagens {
 		}
 	}
 	
-	public Icon getImagem() {
+	public ImageIcon getImagem() {
 		return imagem;
 	}
 }

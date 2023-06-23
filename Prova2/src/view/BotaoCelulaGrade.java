@@ -2,9 +2,11 @@ package view;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import control.Celula;
@@ -133,6 +135,74 @@ public class BotaoCelulaGrade extends JButton {
 	 */
 	public boolean verificarPosicao(int x, int y) {
 		return this.x == x && this.y == y;
+	}
+	
+	/**
+	 * Muda a imagem do botão
+	 * 
+	 * @param icone nova imagem
+	 * 
+	 * @see ImageIcon
+	 */
+	private void definirIcon(ImageIcon icone) {
+		icone.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
+		setIcon(icone);
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula vazia
+	 */
+	public void definirImagemCelulaVazia() {
+//		setIcon(Imagens.CELULA_VAZIA.getImagem());
+		definirIcon(Imagens.CELULA_VAZIA.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula escondida
+	 */
+	public void definirImagemCelulaEscondida() {
+//		setIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+		definirIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula com aluno
+	 */
+	public void definirImagemCelulaComAluno() {
+//		setIcon(Imagens.CELULA_COM_ALUNO.getImagem());
+		definirIcon(Imagens.CELULA_COM_ALUNO.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula com bug
+	 */
+	public void definirImagemCelulaComBug() {
+//		setIcon(Imagens.CELULA_COM_BUG.getImagem());
+		definirIcon(Imagens.CELULA_COM_BUG.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula com o robo 1
+	 */
+	public void definirImagemCelulaComRobo1() {
+//		setIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
+		definirIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula com o robo 2
+	 */
+	public void definirImagemCelulaComRobo2() {
+//		setIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
+		definirIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
+	}
+	
+	/**
+	 * muda a imagem para a de uma celula com o robo 3
+	 */
+	public void definirImagemCelulaComRobo3() {
+//		setIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
+		definirIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
 	}
 	
 	/**
