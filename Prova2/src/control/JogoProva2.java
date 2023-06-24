@@ -14,28 +14,28 @@ import view.TelaJogo;
 public class JogoProva2 {
 	
 	/**
-	 * a tela do jogo, serve de interface para o jogador
+	 * A tela do jogo, serve de interface para o jogador
 	 * 
 	 * @see TelaJogo
 	 */
 	private TelaJogo telaJogo;
 	
 	/**
-	 * o jogador do jogo
+	 * O jogador do jogo
 	 * 
 	 * @see Jogador
 	 */
 	private Jogador jogador;
 	
 	/**
-	 * o tabuleiro do jogo
+	 * O tabuleiro do jogo
 	 * 
 	 * @see Tabuleiro
 	 */
 	private Tabuleiro tabuleiro;
 
 	/**
-	 * um {@code ArrayList} de todos os recordes de partidas passadas
+	 * Um {@code ArrayList} de todos os recordes de partidas passadas
 	 * 
 	 * @see ArrayList
 	 * @see RecordeJogo
@@ -48,7 +48,7 @@ public class JogoProva2 {
 	private int numeroRodadas;
 	
 	/**
-	 * começa o jogo, carrega os recordes de um arquivo de texto
+	 * Começa o jogo, carrega os recordes de um arquivo de texto
 	 */
 	public JogoProva2() {
 		this.telaJogo = new TelaJogo(this);
@@ -157,19 +157,17 @@ public class JogoProva2 {
 		telaJogo.getPainelControleRobos().habilitarBotoes();
 		
 		if (tabuleiro.getNumeroAlunosResgatados() == tabuleiro.getNumeroAlunosTotal() || tabuleiro.getNumberCelulasVazias() == 0) {
-			terminarPartida();
+			telaJogo.finalizarPartida();
 		}
 	}
 
 	/**
-	 * começa uma nova partida dado o nome do jogador
+	 * Começa uma nova partida dado o nome do jogador
 	 * 
 	 * @param nomeJogador nome do jogador
 	 */
 	public void comecarNovaPartida() {
 		jogador = new Jogador(telaJogo.getPainelPrincipal().getNomeJogador());
-		telaJogo.getPainelPrincipal().setCaixaNomeJogadorEnabled(false);
-		
 		tabuleiro = new Tabuleiro();
 		numeroRodadas = 0;
 
@@ -177,7 +175,7 @@ public class JogoProva2 {
 	}
 	
 	/**
-	 * termina a partida e recebe o numero de rodadas para salvar o recorde da partida
+	 * Termina a partida e recebe o numero de rodadas para salvar o recorde da partida
 	 * 
 	 * @param numeroRodadas numero de rodadas
 	 */
@@ -212,7 +210,7 @@ public class JogoProva2 {
 	}
 	
 	/**
-	 * salva o recorde de uma partida no {@link JogoProva2#recordes}
+	 * Aalva o recorde de uma partida no {@link JogoProva2#recordes}
 	 * e salva os recordes num arquivo de texo
 	 * 
 	 * @param numeroRodadas numero de rodadas

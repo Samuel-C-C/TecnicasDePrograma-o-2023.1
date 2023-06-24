@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 //import java.awt.Image;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 //import javax.swing.Icon;
 //import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -67,7 +68,7 @@ public class PainelControleRobos extends JPanel {
 	private JLabel labelBugs;
 	
 	/**
-	 * {@code ArrayList} de {@code JLabel} com a quantidade de pontos de cada {@code Robo}
+	 * A {@code ArrayList} de {@code JLabel} com a quantidade de pontos de cada {@code Robo}
 	 * 
 	 * @see ArrayList
 	 * @see JLabel
@@ -76,7 +77,7 @@ public class PainelControleRobos extends JPanel {
 	private ArrayList<JLabel> labelsPontuacaoRobos;
 	
 	/**
-	 * {@code ArrayList} de {@code BotaoControleRobo} que controlam cada {@code Robo}
+	 * A {@code ArrayList} de {@code BotaoControleRobo} que controlam cada {@code Robo}
 	 * 
 	 * @see ArrayList
 	 * @see BotaoControleRobo
@@ -85,7 +86,7 @@ public class PainelControleRobos extends JPanel {
 	private ArrayList<BotaoControleRobo> botoesRobos;
 	
 	/**
-	 * {@code JButton} que reseta a posição de cada {@code Robo} no {@code Tabuleiro}
+	 * O {@code JButton} que reseta a posição de cada {@code Robo} no {@code Tabuleiro}
 	 * 
 	 * @see JButton
 	 * @see Robo
@@ -94,7 +95,7 @@ public class PainelControleRobos extends JPanel {
 	private JButton botaoResetar;
 	
 	/**
-	 * {@code JButton} que verifica se cada {@code Robo} colodao no {@code Tabuleiro}
+	 * O {@code JButton} que verifica se cada {@code Robo} colodao no {@code Tabuleiro}
 	 * encontrou algum {@code Aluno} ou {@code Bug} e começa a proxima rodada
 	 * 
 	 * @see JButton
@@ -106,7 +107,7 @@ public class PainelControleRobos extends JPanel {
 	private JButton botaoProsseguir;
 	
 	/**
-	 * {@code JButton} que termina a partida
+	 * O {@code JButton} que termina a partida
 	 * 
 	 * @see JButton
 	 */
@@ -137,18 +138,30 @@ public class PainelControleRobos extends JPanel {
 		painelAlunosBugs.setLayout(new GridLayout(1, 2));
 		labelAlunos = new JLabel("ALUNOS: 0");
 		labelAlunos.setHorizontalAlignment(JLabel.CENTER);
+		labelAlunos.setIcon(Imagens.ALUNO.getImagem());
 		painelAlunosBugs.add(labelAlunos);
 		labelBugs = new JLabel("BUGS: 0");
 		labelBugs.setHorizontalAlignment(JLabel.CENTER);
+		labelBugs.setIcon(Imagens.BUG.getImagem());
 		painelAlunosBugs.add(labelBugs);
 		this.add(painelAlunosBugs);
 		
 		JPanel painelPontuacaoRobos = new JPanel();
 		painelPontuacaoRobos.setLayout(new GridLayout(1, 3));
 		labelsPontuacaoRobos = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
-			JLabel labelPontuacaoRobo = new JLabel("ROBO " + (i + 1) + ": 0");
+		for (int i = 1; i <= 3; i++) {
+			JLabel labelPontuacaoRobo = new JLabel("ROBO " + i + ": 0");
 			labelPontuacaoRobo.setHorizontalAlignment(JLabel.CENTER);
+			if (i == 1) {
+				ImageIcon icone = Imagens.ROBO_1.getImagem();
+				labelPontuacaoRobo.setIcon(icone);
+			} else if (i == 2) {
+				ImageIcon icone = Imagens.ROBO_2.getImagem();
+				labelPontuacaoRobo.setIcon(icone);
+			} else if (i == 3) {
+				ImageIcon icone = Imagens.ROBO_3.getImagem();
+				labelPontuacaoRobo.setIcon(icone);
+			}
 			
 			labelsPontuacaoRobos.add(labelPontuacaoRobo);
 			painelPontuacaoRobos.add(labelPontuacaoRobo);
@@ -158,8 +171,8 @@ public class PainelControleRobos extends JPanel {
 		JPanel painelBotoesRobos = new JPanel();
 		painelBotoesRobos.setLayout(new GridLayout(1, 3));
 		botoesRobos = new ArrayList<>();
-		for (int i = 0; i < 3; i++) {
-			BotaoControleRobo botao = new BotaoControleRobo(this, i+1);
+		for (int i = 1; i <= 3; i++) {
+			BotaoControleRobo botao = new BotaoControleRobo(this, i);
 			botoesRobos.add(botao);
 			painelBotoesRobos.add(botao);
 		}
@@ -253,6 +266,18 @@ public class PainelControleRobos extends JPanel {
 	}
 	
 	/**
+	 * Faz com que não seja mais possível fazer nada além de apertar o botão de sair
+	 */
+	public void desabilitarControles() {
+		for (BotaoControleRobo botao : botoesRobos) {
+			botao.bloquear();
+		}
+		
+		botaoResetar.setEnabled(false);
+		botaoProsseguir.setEnabled(false);
+	}
+	
+	/**
 	 * Retorna os botões de controle de Robo
 	 * 
 	 * @return {@code ArrayList} de {@code BotaoControleRobo} do painel
@@ -309,6 +334,13 @@ public class PainelControleRobos extends JPanel {
 		this.labelsPontuacaoRobos.get(numeroRobo - 1).setText("ROBO " + numeroRobo + ": " + pontuacao); 
 	}
 	
+	/**
+	 * Atualiza os dados dos {@code JLabel} com valores dados do jogo
+	 * 
+	 * @see Jogador#getPontuacao()
+	 * @see Tabuleiro#getNumeroAlunosResgatados()
+	 * @see Tabuleiro#getNumeroBugsEncontrados()
+	 */
 	public void updateInformacoes() {
 		int pontuacao = telaJogo.getControleJogo().getJogador().getPontuacao();
 		int numeroAlunos = telaJogo.getControleJogo().getTabuleiro().getNumeroAlunosResgatados();

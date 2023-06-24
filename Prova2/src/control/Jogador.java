@@ -11,7 +11,7 @@ public class Jogador {
 	private String nome;
 	
 	/**
-	 * quantidade de pontos do jogador, deve ser igual a soma da pontuacao de todos os robos
+	 * Quantidade de pontos do jogador, deve ser igual a soma da pontuacao de todos os robos
 	 */
 	private int pontuacao;
 	

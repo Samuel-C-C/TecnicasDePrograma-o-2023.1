@@ -24,7 +24,7 @@ public class GeradorNumeroAleatorio {
 	}
 	
 	/**
-	 * cria um número inteiro aleatorio dentro do intervalo fechado
+	 * Cria um número inteiro aleatorio dentro do intervalo fechado
 	 * [minimo, maximo]
 	 * 
 	 * @param minimo menor número que o método pode retornar

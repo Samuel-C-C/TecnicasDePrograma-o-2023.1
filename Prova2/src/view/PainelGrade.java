@@ -39,12 +39,12 @@ public class PainelGrade extends JPanel {
 	private ArrayList<BotaoCelulaGrade> botoesCelula;
 	
 	/**
-	 * número de linhas da grade
+	 * Número de linhas da grade
 	 */
 	private int numeroLinhas;
 	
 	/**
-	 * número de colunas da grade
+	 * Número de colunas da grade
 	 */
 	private int numeroColunas;
 	

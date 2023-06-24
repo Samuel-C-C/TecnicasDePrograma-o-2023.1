@@ -8,14 +8,14 @@ package control;
 public abstract class Elemento {
 	
 	/**
-	 * a posicao X no tabuleiro
+	 * A posicao X no tabuleiro
 	 * 
 	 * <p> x = 1 significa a primeira coluna </p>
 	 */
 	private int x;
 	
 	/**
-	 * a posição Y no tabuleiro
+	 * A posição Y no tabuleiro
 	 * 
 	 * <p> y = 1 significa a primeira linha </p>
 	 */
@@ -36,6 +36,8 @@ public abstract class Elemento {
 	}
 	
 	/**
+	 * Retorna a posição X do elemento
+	 * 
 	 * @return a posição X do elemento
 	 * 
 	 * @see Elemento#x
@@ -45,6 +47,8 @@ public abstract class Elemento {
 	}
 	
 	/**
+	 * Retorna a posição Y do elemento
+	 * 
 	 * @return a posição Y do elemento
 	 * 
 	 * @see Elemento#y
@@ -54,7 +58,7 @@ public abstract class Elemento {
 	}
 	
 	/**
-	 * verifica se a posição do elemento é igual a posição especificada pelos parametros
+	 * Verifica se a posição do elemento é igual a posição especificada pelos parametros
 	 * 
 	 * @param x posição X a verificar
 	 * @param y posição Y a verificar
@@ -69,7 +73,7 @@ public abstract class Elemento {
 	}
 	
 	/**
-	 * verifica se a posição do elemento é igual a outro elemento
+	 * Verifica se a posição do elemento é igual a outro elemento
 	 * 
 	 * @param outroElemento o elemento a verificar a posição
 	 * 

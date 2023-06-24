@@ -13,12 +13,12 @@ import java.io.IOException;
 public class TextFileIO {
 	
 	/**
-	 * escrever uma String em um arquivo de texto
+	 * Escrever uma String em um arquivo de texto
 	 * 
 	 * @param dados string a ser escrita
 	 * @param diretorio diretório do arquivo de texto
 	 */
-	public void Escrever(String dados, String diretorio) {
+	public void escrever(String dados, String diretorio) {
 		try {
 			FileWriter arquivo = new FileWriter(diretorio);
 			arquivo.write(dados);
@@ -29,12 +29,12 @@ public class TextFileIO {
 	}
 	
 	/**
-	 * ler uma string de um arquivo de texto
+	 * Ler uma string de um arquivo de texto
 	 * 
 	 * @param diretorio diretório do arquivo de texto
 	 * @return uma string com oq tinha escrito no arquivo de texto
 	 */
-	public String Ler(String diretorio) {
+	public String ler(String diretorio) {
 		try {
 			FileReader arquivo = new FileReader(diretorio);
 			BufferedReader arquivoLeitura = new BufferedReader(arquivo);

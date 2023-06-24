@@ -36,7 +36,9 @@ public abstract class AlunoEBug extends Elemento {
 	}
 	
 	/**
-	 * @return o valor de pontos do Aluno ou Bug
+	 * Retorna o valor de pontos do aluno ou bug
+	 * 
+	 * @return o valor de pontos do aluno ou bug
 	 * 
 	 * @see AlunoEBug#valorPontos
 	 */
@@ -45,6 +47,8 @@ public abstract class AlunoEBug extends Elemento {
 	}
 	
 	/**
+	 * Diz se foi encontrado
+	 * 
 	 * @return {@code true} se o Aluno ou Bug já foi encontrado, caso contrário, {@code false}
 	 * 
 	 * @see AlunoEBug#encontrado
@@ -65,7 +69,7 @@ public abstract class AlunoEBug extends Elemento {
 	/**
 	 * Não faz nada, pois Alunos ou Bugs não podem se mover
 	 */
-	public void setPosicao(int x, int y) {
+	public final void setPosicao(int x, int y) {
 		;
 	}
 	

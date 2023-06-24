@@ -41,7 +41,7 @@ public class RecordeJogoDAO {
 			dados += recorde.getStringDeFormacao() + "\n";
 		}
 		
-		textFileIO.Escrever(dados, "arquivos de texto/recordes.txt");
+		textFileIO.escrever(dados, "arquivos de texto/recordes.txt");
 	}
 	
 	/**
@@ -55,7 +55,7 @@ public class RecordeJogoDAO {
 	public ArrayList<RecordeJogo> carregar() {
 		ArrayList<RecordeJogo> recordes = new ArrayList<>();
 		
-		String dados = textFileIO.Ler("arquivos de texto/recordes.txt");
+		String dados = textFileIO.ler("arquivos de texto/recordes.txt");
 		String[] linhas = dados.split("\n");
 		
 		for (String linha : linhas) {

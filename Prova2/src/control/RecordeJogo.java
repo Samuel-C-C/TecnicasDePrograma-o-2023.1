@@ -23,7 +23,7 @@ public class RecordeJogo {
 	private int numeroCelulasVazias;
 	
 	/**
-	 * Pontuacao final do Jogador
+	 * Pontuação final do Jogador
 	 * 
 	 * @see Jogador
 	 */
@@ -173,6 +173,13 @@ public class RecordeJogo {
 		return linha;
 	}
 	
+	/**
+	 * Retorna a string de formação de um recorde
+	 * 
+	 * @return a {@code stringDeFormacao} usada para recriar o mesmo recorde novamente depois
+	 * 
+	 * @see RecordeJogo#RecordeJogo(String)
+	 */
 	public String getStringDeFormacao() {
 		String stringDeFormacao = "";
 		stringDeFormacao += nomeJogador + ";";

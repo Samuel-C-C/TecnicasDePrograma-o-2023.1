@@ -30,6 +30,8 @@ public final class Celula extends Elemento {
 	}
 	
 	/**
+	 * Diz se a celula já foi visitada
+	 * 
 	 * @return {@code true} se a celula já foi visitada, se não, {@code false}
 	 * 
 	 * @see Celula#visitada
@@ -39,7 +41,7 @@ public final class Celula extends Elemento {
 	}
 	
 	/**
-	 * define {@code visitada} como {@code true}
+	 * Define {@code visitada} como {@code true}
 	 * 
 	 * @see Celula#visitada
 	 */

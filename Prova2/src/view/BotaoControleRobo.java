@@ -1,9 +1,11 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import control.Robo;
@@ -20,25 +22,18 @@ public class BotaoControleRobo extends JButton {
 	private static final long serialVersionUID = 4184139410738668476L;
 	
 	/**
-	 * Cor quando o botão é selecionado
-	 * 
-	 * @see Color
-	 */
-	public static Color corSelecionado = new Color(0x10f010);
-	
-	/**
 	 * Cor normal do botão
 	 * 
 	 * @see Color
 	 */
-	public static Color corNormal = new Color(0xe0e0e0);
+	public static final Color COR_NORMAL = new Color(0xe0e0e0);
 	
 	/**
 	 * Cor quando o botão é bloqueado
 	 * 
 	 * @see Color
 	 */
-	public static Color corBloqueado = new Color(0xf01010);
+	public static final Color COR_BLOQUEADO = new Color(0xe0c0c0);
 	
 	/**
 	 * O painel a qual esse botão pertence
@@ -58,6 +53,13 @@ public class BotaoControleRobo extends JButton {
 	private int numeroBotao;
 	
 	/**
+	 * Imagem do botão
+	 * 
+	 * @see ImageIcon
+	 */
+	private ImageIcon icone;
+	
+	/**
 	 * Cria o botão usando o painel e o número
 	 * 
 	 * @param painelControleRobos painel a qual esse botão pertence
@@ -72,9 +74,31 @@ public class BotaoControleRobo extends JButton {
 		this.painelControleRobos = painelControleRobos;
 		numeroBotao = numero;
 		
-		setText("ROBO " + numeroBotao);
+		if (numeroBotao == 1) {
+			definirIcone(Imagens.ROBO_1);
+		} else if (numeroBotao == 2) {
+			definirIcone(Imagens.ROBO_2);
+		} else if (numeroBotao == 3) {
+			definirIcone(Imagens.ROBO_3);
+		}
+		
 		habilitar();
 		addActionListener(new AcaoSelecionarRobo());
+	}
+	
+	/**
+	 * Define o atributo icone baseado numa das Imagens do {@code Enum Imagens}
+	 * 
+	 * @param imagem a imagem a ser escolhida
+	 * 
+	 * @see BotaoControleRobo#icone
+	 * @see Imagens
+	 */
+	private void definirIcone(Imagens imagem) {
+		icone = new ImageIcon(
+				imagem.getImagem().
+				getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)
+				);
 	}
 	
 	/**
@@ -112,12 +136,15 @@ public class BotaoControleRobo extends JButton {
 	}
 	
 	/**
-	 * Faz o botão ficar normal
+	 * Faz o botão ficar habilitado
 	 * 
 	 * <p>a forma normal do botão</p>
 	 */
 	public void habilitar() {
-		setBackground(corNormal);
+		setIcon(icone);
+		setDisabledIcon(null);
+		
+		setBackground(COR_NORMAL);
 		setEnabled(true);
 		selecionado = false;
 	}
@@ -128,7 +155,16 @@ public class BotaoControleRobo extends JButton {
 	 * <p>dessa forma, o botão não pode ser pressionado</p>
 	 */
 	public void bloquear() {
-		setBackground(corBloqueado);
+		
+		if (getRoboRelacionado().isPosicionado()) {
+			setIcon(null);
+			setDisabledIcon(null);
+		} else {
+			setIcon(icone);
+			setDisabledIcon(icone);
+		}
+		
+		setBackground(COR_BLOQUEADO);
 		setEnabled(false);
 		selecionado = false;
 	}
@@ -140,7 +176,10 @@ public class BotaoControleRobo extends JButton {
 	 * e todos os outros botões são bloqueados</p>
 	 */
 	public void selecionar() {
-		setBackground(corSelecionado);
+		setIcon(icone);
+		setDisabledIcon(null);
+		
+		setBackground(COR_NORMAL);
 		setEnabled(false);
 		selecionado = true;
 		

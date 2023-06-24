@@ -1,9 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
+import java.awt.Image;
 
 import javax.swing.JFrame;
-//import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 import control.JogoProva2;
 
@@ -19,14 +20,14 @@ public class TelaJogo extends JFrame {
 	private static final long serialVersionUID = 8398625067733596004L;
 	
 	/**
-	 * serve para acessar métodos, dados da classe {@code JogoProva2} e retornar valores
+	 * Serve para acessar métodos, dados da classe {@code JogoProva2} e retornar valores
 	 * 
 	 * @see JogoProva2
 	 */
 	private JogoProva2 controleJogo;
 	
 	/**
-	 * diz se a tela está em modo de jogo ou não
+	 * Diz se a tela está em modo de jogo ou não
 	 * 
 	 * <p> estar em modo de jogo significa ter o tabuleiro, botões e outras coisas relacionadas
 	 * com o jogo a mostra </p>
@@ -34,7 +35,7 @@ public class TelaJogo extends JFrame {
 	private boolean modoJogo;
 	
 	/**
-	 * o painel de cima que tem o botão de iniciar jogo, caixa de texto com o nome do jogador
+	 * O painel de cima que tem o botão de iniciar jogo, caixa de texto com o nome do jogador
 	 * e o botão que abre a tela de relatorio
 	 * 
 	 * @see PainelPrincipal
@@ -43,27 +44,31 @@ public class TelaJogo extends JFrame {
 	private PainelPrincipal painelPrincipal;
 	
 	/**
-	 * o painel com as informações relevantes para o jogo e botões para controlar os robos
+	 * O painel com as informações relevantes para o jogo e botões para controlar os robos
 	 * 
 	 * @see PainelControleRobos
 	 */
 	private PainelControleRobos painelControleRobos;
 	
 	/**
-	 * o painel com o tabuleiro
+	 * O painel com o tabuleiro
 	 * 
 	 * @see PainelGrade
 	 */
 	private PainelGrade painelGrade;
 	
 	/**
-	 * cria a tela para jogar o jogo
+	 * Cria a tela para jogar o jogo
 	 */
 	public TelaJogo(JogoProva2 controleJogo) {
 		this.setSize(800, 137);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
+		this.setIconImage(
+				Imagens.ROBO_1.getImagem().
+				getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)
+				);
 		
 		this.controleJogo = controleJogo;
 		modoJogo = false;
@@ -123,7 +128,7 @@ public class TelaJogo extends JFrame {
 	}
 	
 	/**
-	 * muda a tela para o modo de jogo
+	 * Muda a tela para o modo de jogo
 	 * 
 	 * @see TelaJogo#modoJogo
 	 */
@@ -132,6 +137,9 @@ public class TelaJogo extends JFrame {
 			modoJogo = true;
 			
 			painelPrincipal.setBotaoJogarEnable(false);
+			painelPrincipal.setCaixaNomeJogadorEnabled(false);
+			painelGrade.update();
+			painelControleRobos.updateInformacoes();
 			
 			this.setSize(800, 600);
 			this.setLocationRelativeTo(null);
@@ -145,7 +153,18 @@ public class TelaJogo extends JFrame {
 	}
 	
 	/**
-	 * volta a tela para o modo como era assim que é criada
+	 * Chamado quando todos os alunos foram encontrados
+	 * 
+	 * <p>serve para evitar que o jogador faça qualquer outra coisa além de terminar a partida
+	 * além de avisar que todos os alunos já foram encontrados</p>
+	 */
+	public void finalizarPartida() {
+		JOptionPane.showMessageDialog(this, "Todos os alunos encontrados!");
+		painelControleRobos.desabilitarControles();
+	}
+	
+	/**
+	 * Volta a tela para o modo como era assim que é criada
 	 * 
 	 * @see TelaJogo#modoJogo
 	 */
@@ -175,7 +194,7 @@ public class TelaJogo extends JFrame {
 	}
 	
 	/**
-	 * abre uma tela com uma tabela dos recordes de partidas anteriores
+	 * Abre uma tela com uma tabela dos recordes de partidas anteriores
 	 */
 	public void abrirTelaRelatorio() {
 		new TelaRelatorio(this);

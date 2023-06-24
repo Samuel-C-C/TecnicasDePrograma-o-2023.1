@@ -10,17 +10,17 @@ import java.util.ArrayList;
 public class Tabuleiro {
 	
 	/**
-	 * número de linhas do tabuleiro
+	 * Número de linhas do tabuleiro
 	 */
 	private int numeroDeLinhas;
 	
 	/**
-	 * número de colunas do tabuleiro
+	 * Número de colunas do tabuleiro
 	 */
 	private int numeroDeColunas;
 	
 	/**
-	 * um {@code ArrayList} de todos os elementos do tabuleiro
+	 * Um {@code ArrayList} de todos os elementos do tabuleiro
 	 * 
 	 * @see ArrayList
 	 * @see Elemento
@@ -80,7 +80,7 @@ public class Tabuleiro {
 	 */
 	private void colocarRobosTabuleiro() {
 		for (int i = 1; i <= 3; i++) {
-			elementos.add(new Robo(this, "Robo " + i, 0, 0));
+			elementos.add(new Robo(this, i, "Robo " + i, 0, 0));
 		}
 	}
 	
@@ -174,6 +174,8 @@ public class Tabuleiro {
 	}
 	
 	/**
+	 * Retorna uma lista com todos os alunos e bugs no tabuleiro
+	 * 
 	 * @return um {@code ArrayList} com todas os alunos e bugs do tabuleiro
 	 * 
 	 * @see ArrayList
@@ -213,6 +215,8 @@ public class Tabuleiro {
 	}
 
 	/**
+	 * Retorna uma lista com todos os robos no tabuleiro
+	 * 
 	 * @return um {@code ArrayList} com todos os robos do tabuleiro
 	 * 
 	 * @see ArrayList
@@ -315,7 +319,9 @@ public class Tabuleiro {
 	}
 	
 	/**
-	 * @return o numero de Celulas não visitadas
+	 * Retorna o número de celulas não visitadas
+	 * 
+	 * @return o número de celulas não visitadas
 	 * 
 	 * @see Celula
 	 */
@@ -351,7 +357,9 @@ public class Tabuleiro {
 	}
 	
 	/**
-	 * @return o número de Alunos resgatados
+	 * Retorna o número de alunos resgatados
+	 * 
+	 * @return o número de alunos resgatados
 	 * 
 	 * @see Aluno
 	 */
@@ -368,7 +376,9 @@ public class Tabuleiro {
 	}
 
 	/**
-	 * @return o número de Bugs encontrados
+	 * Retorna o número de bugs encontrados
+	 * 
+	 * @return o número de bugs encontrados
 	 * 
 	 * @see Bug
 	 */

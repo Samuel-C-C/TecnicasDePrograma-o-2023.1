@@ -10,11 +10,6 @@ package control;
 public class Robo extends Elemento {
 	
 	/**
-	 * Número de robos
-	 */
-	private static int numeroRobos = 0;
-	
-	/**
 	 * O Tabuleiro a qual esse robo pertence
 	 * 
 	 * @see Tabuleiro
@@ -49,15 +44,14 @@ public class Robo extends Elemento {
 	 * @see Elemento#x
 	 * @see Elemento#y
 	 */
-	public Robo(Tabuleiro tabuleiro, String nome, int x, int y) {
+	public Robo(Tabuleiro tabuleiro, int id, String nome, int x, int y) {
 		super(x, y);
 		
 		pontos = 0;
 		this.tabuleiro = tabuleiro;
 		this.nome = nome;
 		
-		this.id = numeroRobos + 1;
-		numeroRobos++;
+		this.id = id;
 	}
 	
 	/**

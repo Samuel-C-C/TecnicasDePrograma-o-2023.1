@@ -8,7 +8,7 @@ package control;
 public final class Bug extends AlunoEBug {
 
 	/**
-	 * Cria um Bug na posição (x, y)
+	 * Cria um bug na posição (x, y)
 	 * 
 	 * @param x posição X
 	 * @param y posição Y
@@ -21,6 +21,8 @@ public final class Bug extends AlunoEBug {
 	}
 
 	/**
+	 * Retorna {@code false}
+	 * 
 	 * @return {@code false}
 	 */
 	public boolean isAluno() {
@@ -28,6 +30,8 @@ public final class Bug extends AlunoEBug {
 	}
 
 	/**
+	 * Retorna {@code true}
+	 * 
 	 * @return {@code true}
 	 */
 	public boolean isBug() {

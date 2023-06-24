@@ -8,7 +8,7 @@ package control;
 public final class Aluno extends AlunoEBug {
 
 	/**
-	 * Cria um Aluno na posição (x, y)
+	 * Cria um aluno na posição (x, y)
 	 * 
 	 * @param x posição X
 	 * @param y posição Y
@@ -21,6 +21,8 @@ public final class Aluno extends AlunoEBug {
 	}
 
 	/**
+	 * Retorna {@code true}
+	 * 
 	 * @return {@code true}
 	 */
 	public boolean isAluno() {
@@ -28,6 +30,8 @@ public final class Aluno extends AlunoEBug {
 	}
 
 	/**
+	 * Retorna {@code false}
+	 * 
 	 * @return {@code false}
 	 */
 	public boolean isBug() {
