@@ -14,6 +14,11 @@ import view.TelaJogo;
 public class JogoProva2 {
 	
 	/**
+	 * Versão do jogo
+	 */
+	private static final String VERSAO = "1.0";
+	
+	/**
 	 * A tela do jogo, serve de interface para o jogador
 	 * 
 	 * @see TelaJogo
@@ -56,6 +61,17 @@ public class JogoProva2 {
 		RecordeJogoDAO acessoDados = new RecordeJogoDAO();
 		recordes = acessoDados.carregar();
 		numeroRodadas = -1;
+	}
+	
+	/**
+	 * Retorna a versão do jogo
+	 * 
+	 * @return a versão do jogo
+	 * 
+	 * @see JogoProva2#VERSAO
+	 */
+	public static String getVersao() {
+		return VERSAO;
 	}
 	
 	/**

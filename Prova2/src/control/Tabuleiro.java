@@ -46,7 +46,7 @@ public class Tabuleiro {
 		
 		GeradorNumeroAleatorio geradorAleatorio = new GeradorNumeroAleatorio();
 		
-		colocarAlunosTabuleiro(geradorAleatorio.numeroAleatorio(5, 10));
+		colocarAlunosTabuleiro(geradorAleatorio.numeroAleatorio(10, 20));
 		colocarBugsTabuleiro(geradorAleatorio.numeroAleatorio(5, 10));
 		colocarRobosTabuleiro();
 	}

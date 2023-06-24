@@ -34,6 +34,7 @@ public class TelaRelatorio extends JFrame {
 		setSize(new Dimension(1000, 400));
 		setResizable(false);
 		setLocationRelativeTo(tela);
+		this.setTitle("Recordes");
 		this.setIconImage(
 				Imagens.ROBO_2.getImagem().
 				getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)
