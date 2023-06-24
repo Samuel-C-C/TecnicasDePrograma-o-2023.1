@@ -25,7 +25,7 @@ public class TelaRelatorio extends JFrame {
 	private DefaultTableModel tabelaRecordes;
 	
 	public TelaRelatorio(TelaJogo tela) {
-		setSize(new Dimension(600, 600));
+		setSize(new Dimension(1000, 400));
 		setResizable(false);
 		setLocationRelativeTo(tela);
 		

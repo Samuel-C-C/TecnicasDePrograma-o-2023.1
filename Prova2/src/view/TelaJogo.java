@@ -154,6 +154,8 @@ public class TelaJogo extends JFrame {
 			modoJogo = false;
 			
 			painelPrincipal.setBotaoJogarEnable(true);
+			painelPrincipal.setCaixaNomeJogadorEnabled(true);
+			painelPrincipal.apagarCaixaNomeJogador();
 			
 			this.setSize(800, 137);
 			this.setLocationRelativeTo(null);

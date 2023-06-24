@@ -98,7 +98,7 @@ public class BotaoCelulaGrade extends JButton {
 		setFont(novaFonte);
 		
 		setBackground(corDeFundo);
-		setIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+		definirModoCelulaEscondida();
 		addActionListener(new acaoApertarBotao());
 		setEnabled(false);
 	}
@@ -144,65 +144,90 @@ public class BotaoCelulaGrade extends JButton {
 	 * 
 	 * @see ImageIcon
 	 */
-	private void definirIcon(ImageIcon icone) {
-		icone.getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH);
-		setIcon(icone);
+	@SuppressWarnings("unused")
+	private void definirIcon(Imagens imagem) {
+		setIcon(new ImageIcon(
+				imagem.getImagem().getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)));
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula vazia
+	 * muda a aparencia do botão para apresentar que não há nada na celula
 	 */
-	public void definirImagemCelulaVazia() {
+	public void definirModoCelulaVazia() {
 //		setIcon(Imagens.CELULA_VAZIA.getImagem());
-		definirIcon(Imagens.CELULA_VAZIA.getImagem());
+//		definirIcon(Imagens.CELULA_VAZIA.getImagem());
+		
+		setBackground(corCelulaVisitadaSemNada);
+		setText("");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula escondida
+	 * muda a aparencia do botão para apresentar que não se sabe ainda oq tem na celula
 	 */
-	public void definirImagemCelulaEscondida() {
+	public void definirModoCelulaEscondida() {
 //		setIcon(Imagens.CELULA_ESCONDIDA.getImagem());
-		definirIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+//		definirIcon(Imagens.CELULA_ESCONDIDA.getImagem());
+		
+//		ImageIcon icone = new ImageIcon("celulaEscondida.png");
+//		setIcon(icone);
+		
+		setBackground(corDeFundo);
+		setText("");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula com aluno
+	 * muda a aparencia do botão para apresentar que um aluno está na celula
 	 */
-	public void definirImagemCelulaComAluno() {
+	public void definirModoCelulaComAluno() {
 //		setIcon(Imagens.CELULA_COM_ALUNO.getImagem());
-		definirIcon(Imagens.CELULA_COM_ALUNO.getImagem());
+//		definirIcon(Imagens.CELULA_COM_ALUNO.getImagem());
+		
+		setBackground(corCelulaComAluno);
+		setText("");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula com bug
+	 * muda a aparencia do botão para apresentar que um bug está na celula
 	 */
-	public void definirImagemCelulaComBug() {
+	public void definirModoCelulaComBug() {
 //		setIcon(Imagens.CELULA_COM_BUG.getImagem());
-		definirIcon(Imagens.CELULA_COM_BUG.getImagem());
+//		definirIcon(Imagens.CELULA_COM_BUG.getImagem());
+		
+		setBackground(corCelulaComBug);
+		setText("");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula com o robo 1
+	 * muda a aparencia do botão para apresentar que o robo 1 está na celula
 	 */
-	public void definirImagemCelulaComRobo1() {
+	public void definirModoCelulaComRobo1() {
 //		setIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
-		definirIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
+//		definirIcon(Imagens.CELULA_COM_ROBO_1.getImagem());
+		
+		setBackground(corCelulaEscondida);
+		setText("Robo 1");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula com o robo 2
+	 * muda a aparencia do botão para apresentar que o robo 2 está na celula
 	 */
-	public void definirImagemCelulaComRobo2() {
+	public void definirModoCelulaComRobo2() {
 //		setIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
-		definirIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
+//		definirIcon(Imagens.CELULA_COM_ROBO_2.getImagem());
+		
+		setBackground(corCelulaEscondida);
+		setText("Robo 2");
 	}
 	
 	/**
-	 * muda a imagem para a de uma celula com o robo 3
+	 * muda a aparencia do botão para apresentar que o robo 3 está na celula
 	 */
-	public void definirImagemCelulaComRobo3() {
+	public void definirModoCelulaComRobo3() {
 //		setIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
-		definirIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
+//		definirIcon(Imagens.CELULA_COM_ROBO_3.getImagem());
+		
+		setBackground(corCelulaEscondida);
+		setText("Robo 3");
 	}
 	
 	/**

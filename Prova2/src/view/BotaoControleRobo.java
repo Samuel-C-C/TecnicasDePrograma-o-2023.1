@@ -38,7 +38,7 @@ public class BotaoControleRobo extends JButton {
 	 * 
 	 * @see Color
 	 */
-	public static Color corBloqueado = new Color(0xe01010);
+	public static Color corBloqueado = new Color(0xf01010);
 	
 	/**
 	 * O painel a qual esse botão pertence
@@ -73,7 +73,7 @@ public class BotaoControleRobo extends JButton {
 		numeroBotao = numero;
 		
 		setText("ROBO " + numeroBotao);
-		setBackground(new Color(0xe0e0e0));
+		habilitar();
 		addActionListener(new AcaoSelecionarRobo());
 	}
 	
@@ -111,17 +111,43 @@ public class BotaoControleRobo extends JButton {
 		return numeroBotao;
 	}
 	
+	/**
+	 * Faz o botão ficar normal
+	 * 
+	 * <p>a forma normal do botão</p>
+	 */
 	public void habilitar() {
 		setBackground(corNormal);
 		setEnabled(true);
 		selecionado = false;
-		
 	}
 	
+	/**
+	 * Faz o botão ficar bloqueado
+	 * 
+	 * <p>dessa forma, o botão não pode ser pressionado</p>
+	 */
 	public void bloquear() {
 		setBackground(corBloqueado);
 		setEnabled(false);
 		selecionado = false;
+	}
+	
+	/**
+	 * Faz o botão ficar selecionado
+	 * 
+	 * <p>dessa forma, o botão não pode ser pressionado mas fica selecionado
+	 * e todos os outros botões são bloqueados</p>
+	 */
+	public void selecionar() {
+		setBackground(corSelecionado);
+		setEnabled(false);
+		selecionado = true;
+		
+		for (BotaoControleRobo botao : painelControleRobos.getBotoesRobos()) {
+			if (!botao.equals(BotaoControleRobo.this))
+				botao.bloquear();
+		}
 	}
 	
 	/**
@@ -133,15 +159,7 @@ public class BotaoControleRobo extends JButton {
 	 */
 	private class AcaoSelecionarRobo implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			setBackground(corSelecionado);
-			setEnabled(false);
-			selecionado = true;
-			
-			for (BotaoControleRobo botao : painelControleRobos.getBotoesRobos()) {
-				if (!botao.equals(BotaoControleRobo.this))
-					botao.bloquear();
-			}
-			
+			selecionar();
 			painelControleRobos.getTelaJogo().getPainelGrade().habilitarBotoes();
 		}
 	}

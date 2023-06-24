@@ -122,9 +122,9 @@ public class PainelGrade extends JPanel {
 				getBotao(x, y).setText("");
 				
 				if (tabuleiro.getCelula(x, y).isVisitada()) {
-					getBotao(x, y).definirImagemCelulaVazia();;
+					getBotao(x, y).definirModoCelulaVazia();;
 				} else {
-					getBotao(x, y).definirImagemCelulaEscondida();;
+					getBotao(x, y).definirModoCelulaEscondida();
 				}
 			}
 		}
@@ -135,9 +135,9 @@ public class PainelGrade extends JPanel {
 				int yAlunoOuBug = alunoOuBug.getY();
 				
 				if (alunoOuBug.isAluno()) {
-					getBotao(xAlunoOuBug, yAlunoOuBug).definirImagemCelulaComAluno();
+					getBotao(xAlunoOuBug, yAlunoOuBug).definirModoCelulaComAluno();
 				} else if (alunoOuBug.isBug()) {
-					getBotao(xAlunoOuBug, yAlunoOuBug).definirImagemCelulaComBug();
+					getBotao(xAlunoOuBug, yAlunoOuBug).definirModoCelulaComBug();
 				}
 			}
 		}
@@ -145,11 +145,11 @@ public class PainelGrade extends JPanel {
 		for (Robo robo : tabuleiro.getRobos()) {
 			if (robo.isPosicionado()) {
 				if (robo.getId() == 1) {
-					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo1();
+					getBotao(robo.getX(), robo.getY()).definirModoCelulaComRobo1();
 				} else if (robo.getId() == 2) {
-					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo2();
+					getBotao(robo.getX(), robo.getY()).definirModoCelulaComRobo2();
 				} else if (robo.getId() == 3) {
-					getBotao(robo.getX(), robo.getY()).definirImagemCelulaComRobo3();
+					getBotao(robo.getX(), robo.getY()).definirModoCelulaComRobo3();
 				} else {
 					getBotao(robo.getX(), robo.getY()).setText(robo.getNome());
 				}

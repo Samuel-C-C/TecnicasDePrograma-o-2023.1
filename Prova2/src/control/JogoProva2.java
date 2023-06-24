@@ -185,7 +185,6 @@ public class JogoProva2 {
 		salvar();
 		
 		telaJogo.sairModoJogo();
-		telaJogo.getPainelPrincipal().setCaixaNomeJogadorEnabled(true);
 		
 		jogador = null;
 		tabuleiro = null;

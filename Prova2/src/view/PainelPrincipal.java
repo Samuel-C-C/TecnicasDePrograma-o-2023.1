@@ -102,6 +102,15 @@ public class PainelPrincipal extends JPanel {
 	}
 	
 	/**
+	 * Apaga o nome que tinha escrito na caixa de texto do nome do jogador
+	 * 
+	 * @see PainelPrincipal#caixaNomeJogador
+	 */
+	public void apagarCaixaNomeJogador() {
+		caixaNomeJogador.setText("");
+	}
+	
+	/**
 	 * @return {@code true} se {@link PainelPrincipal#caixaNomeJogador} estiver vazia
 	 */
 	private boolean verificarCaixaNomeJogador() {
