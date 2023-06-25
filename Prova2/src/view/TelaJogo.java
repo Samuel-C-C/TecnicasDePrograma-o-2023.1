@@ -65,7 +65,7 @@ public class TelaJogo extends JFrame {
 		this.setResizable(false);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLocationRelativeTo(null);
-		this.setTitle("Jogo Prova 2 - " + JogoProva2.getVersao());
+		this.setTitle("Jogo Prova 2 - v" + JogoProva2.getVersao());
 		this.setIconImage(
 				Imagens.ROBO_1.getImagem().
 				getImage().getScaledInstance(64, 64, Image.SCALE_SMOOTH)

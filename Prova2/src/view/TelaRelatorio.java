@@ -43,7 +43,7 @@ public class TelaRelatorio extends JFrame {
 		String[] nomeColunas = {
 				"Jogador", "Quantidade Rodadas", "Células vázias", 
 				"Pontuação", "Alunos resgatados", "Bugs encontrados",
-				"Robo 1", "Robo 2", "Robo 2"
+				"Robo 1", "Robo 2", "Robo 3"
 				};
 		
 		Object[][] dados = tela.getControleJogo().getDadosRecordes();

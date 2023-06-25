@@ -16,7 +16,7 @@ public class JogoProva2 {
 	/**
 	 * Versão do jogo
 	 */
-	private static final String VERSAO = "1.0";
+	private static final String VERSAO = "1.0.1";
 	
 	/**
 	 * A tela do jogo, serve de interface para o jogador
